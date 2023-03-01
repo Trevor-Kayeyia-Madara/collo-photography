@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
 
     <!---EXTERNAL-->
 
@@ -23,7 +25,7 @@
             <ul class="nav_links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About Me</a></li>
-                <li><a href="#Gallery">Gallery</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact Me</a></li>
             </ul>
             <ul class="nav_socials">
@@ -108,21 +110,134 @@
             </div>
             </div>
         </section>
+
+
+
         <!--GALLERY-->
         <section id="gallery">
-            <div class="container gallery_container">
-                
+            <div class="container gallery_container swiper mySwiper">
+                <div class="gallery_head">
+                    <h2 class="gallery_title">My Gallery</h2>
+                    <div class="empty gallery_empty"></div>
+                </div>
+                <p>
+                    These are some of the photos I have done for some of the clients  I have.
+                </p>
+                <div class="swiper-wrapper">
+                    <article class="swiper-slide">
+                        <img src="./images/DSC_2015.jpg">
+                    </article>
+                    <article class="swiper-slide">
+                        <img src="./images/DSC_2043.jpg">
+                    </article>
+                    <article class="swiper-slide">
+                        <img src="./images/DSC_2044.jpg">
+                    </article>
+                    <article class="swiper-slide">
+                        <img src="./images/DSC_2375.jpg">
+                    </article>
+                    <article class="swiper-slide">
+                        <img src="./images/DSC_2434.jpg">
+                    </article>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
+        <!--===================CONTACT SECTION============================-->
+        <section id="contact">
+            <div class="container contact_container">
+                <div class="contact_left">
+                    <h1>Contact Me</h1>
+                    <p> <i class="uil uil-envelope"></i> Email Address: eyearmcollo@gmail.com</p>
+                    <p> <i class="uil uil-phone"></i> Tel No: 0706 045742</p>
+                    <div class="contact_socials">
+                        <a href="https://facebook.com/bate.mwangi" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                        <a href="https://facebook.com/collo_parsaloi" target="_blank"><i class="uil uil-instagram"></i></a>
+                    </div>
+                </div>
+                    <div class="contact_right">
+                        <form action="">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email Address" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button class="btn_submit" type="submit">Send Message</button>
+                        </form>
+                    </div>
+            </div>
+        </section>
 
-
-
-
+        <!--=================FOOTER===========-->
+            <footer>
+                <div class="container footer_container">
+                    <div class="footer_head">
+                        <h2 class="footer_title">eyearmcollo@gmail.com</h2>
+                        <a href="mailto:eyearmcollo@gmail.com" class="contact_btn about_btn">
+                            <i class="uil uil-arrow-up-right"></i>
+                            <p>CONTACT -  SEND ME AN EMAIL</p> 
+                        </a>
+                    </div>
+                    <ul class="footer_links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact Me</a></li>
+                    </ul>
+                </div>
+            </footer>
 
 
 
 
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+        599: {
+            slidesPerView:2,
+            spaceBetween:40
+        },
+        1023:{
+            slidesPerView:3,
+            spaceBetween:60
+        }
+    }
+  });
+  </script>
+  <script>
+  const nav = document.querySelector('.nav_links');
+  const openNavBtn = document.querySelector('#nav_toggle-open');
+  const closeNavBtn = document.querySelector('#nav_toggle-close');
+
+  const openNav = () =>{
+    nav.style.display = 'flex';
+    openNavBtn.style.display = 'none';
+    closeNavBtn.style.display = 'inline-block';
+  }
+
+  openNavBtn.addEventListener('click',openNav);
+
+  const closeNav = () =>{
+    nav.style.display = 'none';
+    openNavBtn.style.display = 'inline-block';
+    closeNavBtn.style.display = 'none';
+  }
+
+  closeNavBtn.addEventListener('click',closeNav);
+
+  nav.querySelectorAll('li a').forEach(navLink => {
+    navLink.addEventListener('click',closeNav);
+  })
+  nav.querySelectorAll('li a').forEach(navLink => {
+    navLink.addEventListener('click',closeNav);
+  })
+    </script>
 </body>
 </html>
