@@ -657,4 +657,7 @@ footer {
     .contact_left, .contact_right{
         flex-basis: 100%;
     }
+    footer{
+        display: none;;
+    }
 }
